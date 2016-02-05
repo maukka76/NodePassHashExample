@@ -1,0 +1,24 @@
+<div class='container-fluid'>
+    <div ng-include src="'/partials/navigation.html'"></div>
+        <div class="row">
+            <div class='col-md-6'>
+                <div class="page-header">
+                    <h3>Delete Messages</h3>
+                </div>
+                <div class='post_repeat' ng-repeat='message in del.messages'>
+                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{$index}}">{{message.subject}}</button>
+                    <div id="{{$index}}" class="collapse">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{del.name}}</h3>
+                            </div>
+                            <div class="panel-body">
+                               <p>{{message.text}}</p>
+                               <button class="btn" ng-click='del.delete(message._id)'>Delete Message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

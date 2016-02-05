@@ -1,0 +1,42 @@
+<div class='container-fluid'>
+    <div ng-include src="'/partials/navigation.html'"></div>
+    <div class="row">
+        <div class='col-md-6'>
+            <div class="page-header">
+                <h3>Filter All Messages</h3>
+            </div>
+            <div class="form-group">
+              <label for="sel1">Select Name:</label>
+              <select class="form-control" id="sel1" ng-model='filter.s_name' ng-options='name.name as name.name for name in filter.names'>
+                  <option value=""></option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sel1">Select Subject:</label>
+              <select class="form-control" id="sel1" ng-model='filter.s_subject' ng-options='subject.subject as subject.subject for subject in filter.subjects'>
+                  <option value=""></option>
+              </select>
+            </div>
+            <button class='btn' type="button" ng-click='filter.getResults()'>Get results</button>
+        </div>
+        <div class='col-md-6'>
+             <div class="page-header">
+                <h3>Results</h3>
+            </div>
+            <p>{{filter.nodata}}</p>
+            <div class='post_repeat' ng-repeat='message in filter.messages'>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{$index}}">{{message.subject}}</button>
+                <div id="{{$index}}" class="collapse">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{filter.sender}}</h3>
+                        </div>
+                        <div class="panel-body">
+                           <p>{{message.text}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

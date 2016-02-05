@@ -1,0 +1,25 @@
+<div class='container-fluid'>    
+    <div ng-include src="'/partials/navigation.html'"></div>
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='col-md-6'>
+                <div class="page-header">
+                  <h3>Recent Messages</h3>
+                </div>
+                <div class='post_repeat' ng-repeat='post in message.messages'>
+                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{$index}}">Topic:{{post.subject}}</button>
+                    <div id="{{$index}}" class="collapse">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Sender:{{message.user}} {{post.timestamp}}</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>{{post.text}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

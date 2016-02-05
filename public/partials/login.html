@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="jumbotron">
+        <h3>Mean Stack Login</h3>
+        <form role="form" name='loginForm'>
+            <div class="form-group">
+                <label for="name">Username</label>
+                <input type="text" id="name" class="form-control" ng-model='user.username' required>
+            </div>
+            <div class="form-group">
+                <label for="pass">Password</label>
+                <input type="password" id="pass" class="form-control" ng-model='user.password' required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" class="form-control" ng-disabled='!user.cheked' ng-model='user.email' ng-required='user.cheked'>
+            </div>
+            <div class="form-group">
+                <label for="box">Enable registering</label>
+                <input type="checkbox" id="box" class="form-control" ng-model='user.cheked'>
+            </div>
+            <button type="button" class="btn btn-default" ng-click='user.login()'>Login</button>
+            <button type="button" class="btn btn-default" ng-disabled='!user.cheked' ng-click='user.register()'>Register</button>
+        </form>
+        <p ng-show='user.loginFailed'>Username or password incorrect!</p>
+        <p class='error' ng-show='user.showError'>Username allready in use. Try another one</p>
+    </div>
+</div>
